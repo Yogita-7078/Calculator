@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js</title>
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	
+		body{
+        background-image: url(v.jpg);
+        background-size: cover;
+        background-position: cover;
+        background-repeat: no-repeat;
+        
+        font-family: sans-serif;
+    }
+    .container{
+    	height: 485px;
+    	width: 710px;
+    	align-items: center;
+    	margin-top: 4px;
+    	margin-left: 200px;
+    	border-radius: 10%;
+    	border: 3px solid rgba(0,100,0);
+        box-shadow: 0 1rem 1rem -0.7rem rgba(0,0,0,1.8);
+    }
+    #showData{
+        color: rgba(0,100,0);
+        
+    }
+    #id{
+    	padding-left:50px;
+    	padding-top: 100px;
+
+    }
+    h1{
+    	color: rgba(0,100,0);
+    	font-size: 90px;
+    	font-weight: bold;
+    	padding-left: 218px;
+    	padding-top: 25px;
+    }
+    h1:hover{
+    	color: lightgreen;
+    }
+    .container1{
+    	float: left;
+    	font-weight: bold;
+    	font-size: 70px;
+    	text-align: center;
+    	padding-right: 110px;
+    	padding-left:30px;
+    	padding-top: 130px;
+    	color:rgba(0,100,0); 
+    	padding-bottom: 100px;
+    }
+    .container1:hover{
+    	color: blue;
+    	text-transform: transparent;
+    }
+  input{
+  	background:rgba(0,100,0);
+  	color: white;
+  	font-weight: bold;
+  	font-size: 18px;
+  	padding: 3px;
+  }
+  #btn{
+  	font-size: 25px;
+  	padding: 5px;
+  }
+  #btn:hover{
+  	padding: 10px;
+  	font-weight: bold;
+  	color: lightgreen;
+  	background-color: blue;
+  }
+  #showData{
+  	color: rgba(0,100,0);
+  	font-weight: bold;
+  	text-align: center;
+  	padding-right: 20px;
+  	padding-left: 20px;
+  }
+</style>
+</head>
+<body>
+	<h1>WELCOME</h1>
+    <div class="container">
+    	<div class="container1">
+        <h6>SHOW <br> STUDENT<br> RESULT</h6>
+     </div>
+     <div class="app-form" id="id">
+     	<div class="app-form-group">
+     		<input type="text" class="app-form-control" placeholder="SQL" id="a">
+     	</div><br>
+     	<div class="app-form-group">
+     		<input type="text" class="app-form-control" placeholder="PHP" id="b">
+     	</div><br>
+     	<div class="app-form-group">
+     		<input type="text" class="app-form-control" placeholder="JAVASCRIPT" id="c">
+     	</div><br>
+     	<div class="app-form-group">
+     		<input type="text" class="app-form-control" placeholder="JQUERY" id="d">
+     	</div><br>
+     	<div class="app-form-group">
+     		<input type="text" class="app-form-control" placeholder="BOOTSTRAP" id="e">
+     	</div><br>
+     	<div>
+     		<input type="button"  name="" value="ShowResult"
+     		onclick="calcy()" id="btn">
+     	</div><br>
+     	<div class="app-form-group showdata">
+     	<p id="showData"></p>
+        </div>
+     </div>	
+     
+     </div>	
+        		
+
+
+	
+
+
+<script>
+	const calcy = () =>{
+		let a=document.getElementById('a').value;
+		let b=document.getElementById('b').value;
+		let c=document.getElementById('c').value;
+		let d=document.getElementById('d').value;
+		let e=document.getElementById('e').value;
+		
+		let totalgrades=(parseFloat(a)+parseFloat(b)+parseFloat(c)+parseFloat(d)+parseFloat(e));
+		// alert(totalgrades);
+		let per=((totalgrades/500)*100);
+		let grades="";
+		if(per<=100 && per>=80){
+			grades='A';
+		}
+		 else if(per<=79 && per>=60){
+			grades='B';
+		}
+		 else if(per<=59 && per>=40){
+			grades='C';
+		}
+		else{
+			grades='F';
+		}
+		if(per>=39){
+   document.getElementById('showData').innerHTML=` Out of 400 your Total is ${totalgrades} and Percentage is ${per}%.<br>  Your Grade is ${grades}. You are Passed.  `
+}
+else{
+   document.getElementById('showData').innerHTML=` Out of 400 your Total is ${totalgrades} and Percentage is ${per}%.<br>  Your Grade is ${grades}. You are Failed.  `
+}
+	}
+</script>
+</body>
+</html>
